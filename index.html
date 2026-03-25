@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Dorm Near Me!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --purple: #9b86bd; --light-purple: #e2d5f3; --nav-purple: #9154f1; }
+        body { font-family: 'Kanit', sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; }
+        
+        /* 1. Top Announcement Bar */
+        .top-banner {
+            background-color: var(--nav-purple);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        /* 2. Navigation Bar */
+        .navbar {
+            background: white;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 50px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        .nav-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            color: #555;
+            font-weight: 400;
+            transition: 0.2s;
+        }
+        .nav-item:hover { color: var(--purple); }
+        .nav-item.active {
+            border-bottom: 3px solid var(--purple);
+            color: var(--purple);
+            font-weight: bold;
+        }
+
+        /* Search Bar & Container */
+        .header-main { text-align: center; margin-top: 10px; }
+        .search-container { text-align: center; margin-bottom: 30px; margin-top: 15px; }
+        .search-bar {
+            width: 100%; max-width: 500px; padding: 12px 25px; border-radius: 30px;
+            border: 2px solid #ddd; font-size: 16px; font-family: 'Kanit', sans-serif;
+            outline: none; transition: 0.3s;
+        }
+        .search-bar:focus { border-color: var(--purple); box-shadow: 0 0 8px rgba(155, 134, 189, 0.3); }
+
+        .container { 
+            display: flex; gap: 20px; max-width: 1100px; margin: 0 auto; 
+            background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Sidebar */
+        .sidebar { background: var(--light-purple); padding: 20px; border-radius: 10px; flex: 1.2; }
+        .filter-group { margin-bottom: 15px; }
+
+        /* Main Section */
+        .main-content { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+        select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; font-family: 'Kanit'; }
+
+        /* Slider Styles (Keeping your circle thumb and bar) */
+        .slider-box { flex: 1.5; padding: 10px; }
+        input[type="range"] { width: 100%; cursor: pointer; appearance: none; -webkit-appearance: none; background: transparent; }
+        
+        input[type="range"]::-webkit-slider-runnable-track { width: 100%; height: 8px; background: #ddd; border-radius: 10px; }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 22px; height: 22px; background: white;
+            border: 3px solid var(--purple); border-radius: 50%;
+            margin-top: -7px; cursor: pointer; transition: 0.2s;
+        }
+        input[type="range"]::-moz-range-track { width: 100%; height: 8px; background: #ddd; border-radius: 10px; }
+        input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; background: white; border: 3px solid var(--purple); border-radius: 50%; }
+
+        .btn-group { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+        .btn { padding: 10px 20px; border-radius: 20px; border: none; cursor: pointer; font-weight: bold; font-family: 'Kanit'; }
+        .btn-reset { background: #dcd0ef; color: #555; }
+        .btn-confirm { background: var(--purple); color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        ข้อมูลที่รวบรวมมาจาก Facebook และ google map โปรดตรวจสอบข้อมูลอีกครั้ง
+    </div>
+
+  <nav class="navbar"> 
+    <a href="index.html" class="nav-item" style="text-decoration: none;">ค้นหาหอพัก</a>
+    <a href="add-info.html" class="nav-item" style="text-decoration: none;">เพิ่มข้อมูล</a>
+    <a href="map.html" class="nav-item" style="text-decoration: none;">แผนที่</a>
+    <div class="nav-item">ติดต่อเรา</div>
+</nav>
+
+    <div class="header-main">
+        <h2 style="color: #2b579a; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            🏢 Dorm near me!
+        </h2>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="🔍 หอที่ต้องการค้นหา...">
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h4>สถานที่รอบ ๆ</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label><input type="checkbox"> ป้ายรถเมล์ มอ</label>
+                <label><input type="checkbox"> 7-11</label>
+                <label><input type="checkbox"> ร้านขายยา</label>
+                <label><input type="checkbox"> ตลาด</label>
+                <label><input type="checkbox"> ร้านซักอบผ้า</label>
+            </div>
+
+            <h4 style="margin-top:30px;">สิ่งอำนวยความสะดวกในห้อง</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label><input type="checkbox"> แอร์</label>
+                <label><input type="checkbox"> ไมโครเวฟ</label>
+                <label><input type="checkbox"> พัดลม</label>
+                <label><input type="checkbox"> ตู้เย็น</label>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div>
+                <label style="font-weight: bold;">โซนที่พักอาศัย</label>
+                <select>
+                    <option>ทุกโซน</option>
+                    <option>ฝั่งมอ</option>
+                    <option>ฝั่งตรงข้ามมอ</option>
+                </select>
+            </div>
+            
+            <div>
+                <label style="font-weight: bold;">ประเภทหอพัก</label>
+                <select>
+                    <option>หอรวม</option>
+                    <option>หอหญิง</option>
+                    <option>หอชาย</option>
+                </select>
+            </div>
+        </div>
+
+<div class="slider-box">
+    <div class="filter-group">
+        <label style="font-weight: bold;">ราคา</label><br>
+        <small>ราคาตอนนี้ <span id="priceTxt">5,000</span> บาท</small>
+        <input type="range" min="1000" max="10000" step="1" value="5000" id="priceInput" style="margin-top: 10px;">
+         <div style="display: flex; justify-content: space-between; font-size: 12px; color: #777;">
+            <span>1,000 บาท</span>
+            <span>10,000 บาท</span>
+    </div>
+
+    <div class="filter-group" style="margin-top:40px;">
+        <label style="font-weight: bold;">ระยะทาง</label><br>
+        <small>ระยะทางตอนนี้ <span id="distTxt">400</span> เมตร</small>
+        <input type="range" min="100" max="1000" step="1" value="400" id="distInput" style="margin-top: 10px;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #777;">
+            <span>100 m</span>
+            <span>1.km</span>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-reset" onclick="location.reload()">คืนค่า</button>
+        <button class="btn btn-confirm" onclick="window.location.href='nextpage.html'">ยืนยัน</button>
+    </div>
+</div>
+    <script>
+        const priceInput = document.getElementById('priceInput');
+        const priceTxt = document.getElementById('priceTxt');
+        priceInput.oninput = function() { priceTxt.innerText = Number(this.value).toLocaleString(); }
+
+        const distInput = document.getElementById('distInput');
+        const distTxt = document.getElementById('distTxt');
+        distInput.oninput = function() { distTxt.innerText = this.value; }
+    </script>
+
+</body>
+</html>

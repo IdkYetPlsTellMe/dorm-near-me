@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Information - Dorm Near Me!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --purple: #9b86bd; --light-purple: #e2d5f3; --nav-purple: #9154f1; }
+        body { font-family: 'Kanit', sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; }
+        
+        .top-banner { background-color: var(--nav-purple); color: white; text-align: center; padding: 8px; font-size: 14px; }
+
+        .navbar { 
+            background: white; display: flex; justify-content: flex-start; 
+            padding: 0 50px; border-bottom: 1px solid #eee; margin-bottom: 20px; 
+        }
+        .nav-item { 
+            padding: 15px 25px; cursor: pointer; color: #555; 
+            font-weight: 400; transition: 0.2s; text-decoration: none;
+        }
+        .nav-item:hover { color: var(--purple); }
+        .nav-item.active { border-bottom: 3px solid var(--purple); color: var(--purple); font-weight: bold; }
+
+        .container { 
+            max-width: 900px; margin: 50px auto; background: white; 
+            padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .selection-title { color: #333; margin-bottom: 50px; font-size: 24px; }
+
+        .selection-grid { display: flex; justify-content: space-around; gap: 30px; flex-wrap: wrap; }
+
+        .option-card { flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; }
+
+        .icon-box { font-size: 80px; margin-bottom: 20px; }
+
+        .btn-purple {
+            background-color: #9154f1; /* Matching the orange from your screenshot */
+            color: white; border: none; padding: 12px 40px; border-radius: 12px;
+            font-family: 'Kanit'; font-weight: bold; font-size: 18px; cursor: pointer;
+            transition: 0.3s; width: 100%; max-width: 250px;
+        }
+        .btn-purple:hover { background-color: #9154f1; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        ข้อมูลที่รวบรวมมาจาก Facebook และ google map โปรดตรวจสอบข้อมูลอีกครั้ง
+    </div>
+
+    <nav class="navbar"> 
+        <a href="index.html" class="nav-item">ค้นหาหอพัก</a>
+        <a href="add-info.html" class="nav-item active">เพิ่มข้อมูล</a>
+        <a href="map.html" class="nav-item">แผนที่</a>
+        <div class="nav-item">ติดต่อเรา</div>
+    </nav> 
+
+    <div class="container">
+        <h2 class="selection-title">แบ่งปันข้อมูลที่พัก/บริการของคุณ</h2>
+        
+        <div class="selection-grid">
+            <div class="option-card">
+                <div class="icon-box">👥</div> <button class="btn-purple">นักศึกษา/บุคคลทั่วไป</button>
+            </div>
+
+            <div class="option-card">
+                <div class="icon-box">👨‍💻</div> 
+                <button class="btn-purple" onclick="window.location.href='add-dorm.html'">
+                    เจ้าของหอพัก
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
